@@ -1,0 +1,251 @@
+/* Main Container */
+.player-1 {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: #121212; /* Background color for the app */
+    color: #ffffff; /* Text color */
+}
+
+/* Sidebar Component */
+.container {
+    width: 15%;
+    padding: 20px;
+    background-color: #111111; /* Dark background for sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spotify-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.profile {
+    margin-top: auto;
+    width: 100%;
+    height: 50px;
+    background-color: #222222; /* Example profile section background */
+    border-radius: 25px;
+}
+
+/* SongList Component */
+.sidebar {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #1c1c1c; /* Slightly lighter background for song list */
+    padding: 20px;
+}
+
+.frame-33 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.title, .title-1 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.search-song-artist {
+    flex-grow: 1;
+    color: #888888;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.list-item-01 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.list-item-01:hover {
+    background-color: #333333; /* Hover effect for song items */
+}
+
+.frame-41 {
+    display: flex;
+    align-items: center;
+}
+
+.image-41 {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.frame-31 {
+    margin-left: 10px;
+}
+
+.song-name-style {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.artist-name-style {
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.container-2 {
+    align-self: center;
+    color: #888888; /* Duration text color */
+}
+
+/* Player Component */
+.player {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #181818; /* Background color for the player */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Shadow for the player */
+}
+
+.song-info {
+    flex: 1;
+    font-size: 16px;
+}
+
+.viva-la-vida {
+    font-weight: bold;
+}
+
+.coldplay {
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.center {
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+
+.cover {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.seeker {
+    flex-grow: 1;
+    height: 5px;
+    background-color: #444444; /* Progress bar background */
+    border-radius: 3px;
+    position: relative;
+}
+
+.controls {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.group-7 {
+    display: flex;
+    align-items: center;
+}
+
+.frame-1, .frame-91, .frame-5 {
+    margin: 0 10px;
+}
+
+.options-button, .previous-button, .play-button, .pause-button, .next-button, .sound-button {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.options-button:hover, .previous-button:hover, .play-button:hover, .pause-button:hover, .next-button:hover, .sound-button:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .player-1 {
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100%;
+        order: 1;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sidebar {
+        height: auto;
+        order: 2;
+        width: 100%;
+    }
+
+    .player {
+        position: static;
+        order: 3;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover {
+        width: 40px;
+        height: 40px;
+    }
+
+    .options-button, .previous-button, .play-button, .pause-button, .next-button, .sound-button {
+        width: 15px;
+        height: 15px;
+    }
+
+    .song-name-style {
+        font-size: 14px;
+    }
+
+    .artist-name-style {
+        font-size: 12px;
+    }
+
+    .player {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls {
+        margin-top: 10px;
+    }
+}
