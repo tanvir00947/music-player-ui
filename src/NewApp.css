@@ -12,7 +12,7 @@ html, body {
   background: linear-gradient(108.18deg, #201606 2.5%, #000000 99.8%);
   display: flex;
   flex-direction: row;
-  padding: 32.5px 2% 15px 2%; /* Responsive padding */
+  padding: 0px 0% 0px 0%; /* Responsive padding */
   width: 100%;
   min-height: 100vh; /* Ensures it covers the viewport height */
   box-sizing: border-box;
@@ -24,7 +24,7 @@ html, body {
 .player-1 .container {
   position: relative;
   opacity: 0.6;
-  margin: 0 2% 17px 0;
+  margin: 25px 2% 17px 0;
   display: flex;
   flex-direction: column;
   overflow-wrap: break-word;
@@ -34,7 +34,7 @@ html, body {
   line-height: 1.333;
   color: #FFFFFF;
   width: 20%;
-  height: 100vh; /* Updated to fill the viewport height */
+  height: 92vh; /* Updated to fill the viewport height */
   box-sizing: border-box;
 }
 
@@ -70,11 +70,11 @@ html, body {
 
 .player-1 .sidebar {
   position: relative;
-  margin: 7.5px 3% 0 0;
+  margin: 40px 1% 0 0;
   display: flex;
   flex-direction: column;
   width: 30%;
-  height: 100vh; /* Take full viewport height */
+  height: 92vh; /* Take full viewport height */
   box-sizing: border-box;
   overflow: hidden; /* Prevent overflow from affecting other elements */
 }
@@ -249,88 +249,97 @@ html, body {
     box-sizing: border-box;
   } */
 
-.player-1 .player {
-    margin: 68.5px 0 87.9px 0;
+  .player-1 .player {
+    margin: 40px 0 0 6%;
     display: flex;
     flex-direction: column;
-    width: 50%; /* Updated width to 50% */
+    width: 50%;
+    max-width: 480px; /* Set a max-width for large screens */
     box-sizing: border-box;
+    align-items: center; /* Center align on smaller screens */
 }
 
-  .player-1 .song-info {
+.player-1 .song-info {
     margin-bottom: 32px;
     display: flex;
     flex-direction: column;
     align-self: flex-start;
-    width: fit-content;
+    width: 100%;
     box-sizing: border-box;
-  }
+    text-align: center; /* Center text for better mobile view */
+}
 
-  .player-1 .viva-la-vida {
+.player-1 .viva-la-vida {
     margin-bottom: 8px;
     display: inline-block;
     overflow-wrap: break-word;
     font-family: 'Inter';
     font-weight: 700;
-    font-size: 32px;
+    font-size: 24px; /* Adjust font size for smaller screens */
     line-height: 1.125;
     color: #FFFFFF;
-  }
-  .player-1 .coldplay {
+}
+
+.player-1 .coldplay {
     opacity: 0.6;
-    align-self: flex-start;
+    align-self: center;
     overflow-wrap: break-word;
     font-family: 'Inter';
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px; /* Adjust font size for smaller screens */
     line-height: 1.5;
     color: #FFFFFF;
-  }
+}
 
-  .player-1 .center {
+.player-1 .center {
     margin-bottom: 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 480px;
+    width: 100%;
+    max-width: 480px; /* Set a max-width for large screens */
     box-sizing: border-box;
-  }
+}
 
-
-  .player-1 .cover {
+.player-1 .cover {
     border-radius: 8px;
     background: url('assets/images/Image42.png') 50% / cover no-repeat;
     margin-bottom: 24px;
-    width: 480px;
-    height: 480px;
-  }
+    width: 100%; /* Make cover image responsive */
+    max-width: 480px; /* Set a max-width for large screens */
+    height: auto; /* Maintain aspect ratio */
+    padding-top: 90%; /* Maintain aspect ratio */
+}
 
-  .player-1 .seeker {
+.player-1 .seeker {
     opacity: 0.2;
     border-radius: 16px;
     background: #FFFFFF;
     position: relative;
-    width: 480px;
+    width: 100%;
+    max-width: 480px; /* Set a max-width for large screens */
     height: 6px;
     box-sizing: border-box;
-  }
-  .player-1 .rectangle-7 {
+}
+
+.player-1 .rectangle-7 {
     border-radius: 16px;
     background: #FFFFFF;
-    width: 200px;
+    width: 50%; /* Adjust width dynamically */
     height: 6px;
-  }
+}
 
-  .player-1 .controls {
+.player-1 .controls {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 480px; /* Set a max-width for large screens */
     box-sizing: border-box;
-  }
+}
 
-  .player-1 .group-7 {
+.player-1 .group-7 {
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.1);
     position: relative;
@@ -340,50 +349,51 @@ html, body {
     width: 48px;
     height: 48px;
     box-sizing: border-box;
-  }
-  .player-1 .frame-1 {
+}
+
+.player-1 .frame-1 {
     display: flex;
     width: 24px;
     height: 24px;
     box-sizing: border-box;
-  }
-  .player-1 .options-button {
+}
+
+.player-1 .options-button {
     width: 19.2px;
     height: 4.8px;
-  }
+}
 
-
-  .player-1 .frame-91 {
+.player-1 .frame-91 {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Add space between buttons */
-  }
-  
-  .player-1 .frame-2,
-  .player-1 .frame-3,
-  .player-1 .frame-4 {
+    gap: 16px; /* Add space between buttons */
+}
+
+.player-1 .frame-2,
+.player-1 .frame-3,
+.player-1 .frame-4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;  /* Set width */
-    height: 32px;  /* Set height */
+    width: 32px; /* Set width */
+    height: 32px; /* Set height */
     box-sizing: border-box;
-  }
-  
-  .player-1 .previous-button {
-    transform: scaleX(-1);  /* Flip the button */
+}
+
+.player-1 .previous-button {
+    transform: scaleX(-1); /* Flip the button */
     width: 24px;
     height: 16px;
-  }
-  
-  .player-1 .play-button {
+}
+
+.player-1 .play-button {
     width: 48px;
     height: 48px;
-  }
-  
-  .player-1 .pause-button {
+}
+
+.player-1 .pause-button {
     border-radius: 56px;
     background: #FFFFFF;
     margin-left: 32px;
@@ -393,20 +403,14 @@ html, body {
     width: 48px;
     height: 48px;
     box-sizing: border-box;
-  }
-  
-  
-  
-  .player-1 .next-button {
+}
+
+.player-1 .next-button {
     width: 24px;
     height: 16px;
-  }
-  
-  
-  /* dfdfdfdf */
-  
-  
-  .player-1 .frame-5 {
+}
+
+.player-1 .frame-5 {
     border-radius: 72px;
     background: rgba(255, 255, 255, 0.1);
     margin-bottom: 1.1px;
@@ -415,8 +419,56 @@ html, body {
     width: 48px;
     height: 48px;
     box-sizing: border-box;
-  }
-  .player-1 .sound-button {
+}
+
+.player-1 .sound-button {
     width: 20px;
     height: 16px;
-  }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .player-1 .viva-la-vida {
+        font-size: 20px;
+    }
+
+    .player-1 .coldplay {
+        font-size: 12px;
+    }
+
+    .player-1 .cover {
+        width: 100%;
+        height: auto;
+    }
+
+    .player-1 .controls {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px; /* Space between control groups */
+    }
+
+    .player-1 .frame-91 {
+        gap: 16px;
+    }
+}
+
+/* Responsive Design for Very Small Screens */
+@media (max-width: 480px) {
+    .player-1 .viva-la-vida {
+        font-size: 18px;
+    }
+
+    .player-1 .coldplay {
+        font-size: 10px;
+    }
+
+    .player-1 .cover {
+        width: 100%;
+        height: auto;
+    }
+
+    .player-1 .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
