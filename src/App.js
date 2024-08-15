@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './NewApp.css';
 // import Player1 from './Player1';
 import SideBar from "./component/SideBar"
 import SongList from './component/SongList';
