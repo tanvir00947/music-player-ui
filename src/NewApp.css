@@ -56,7 +56,7 @@ html, body {
 
 .player-1 .profile {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 0;
   margin: 20px; /* Adjust margin for positioning */
   border-radius: 24px;
@@ -68,14 +68,15 @@ html, body {
 
 
 
-  .player-1 .sidebar {
-    position: relative;
-    margin: 7.5px 3% 0 0; /* Changed margin to percentage */
-    display: flex;
-    flex-direction: column;
-    width: 30%; /* Updated width to 30% */
-    height: fit-content;
-    box-sizing: border-box;
+.player-1 .sidebar {
+  position: relative;
+  margin: 7.5px 3% 0 0;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100vh; /* Take full viewport height */
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent overflow from affecting other elements */
 }
 
   .player-1 .frame-33 {
@@ -163,17 +164,20 @@ html, body {
     align-items: center;
     width: 432px;
     box-sizing: border-box;
-  }
-  
-  .player-1 .list-item-01 {
+    overflow-y: auto; /* Enable vertical scrolling */
+    flex-grow: 1; /* Allow this section to grow and take available space */
+    padding-right: 8px; /* Add padding to avoid overlap with scrollbar */
+}
+
+.player-1 .list-item-01 {
     border-radius: 8px;
     margin: 0 16px 32px 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 432px;
+    width: 90%; /* Ensure full width utilization */
     box-sizing: border-box;
-  }
+}
 
   .player-1 .frame-41 {
     display: flex;
