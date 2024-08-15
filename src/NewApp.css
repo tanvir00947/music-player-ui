@@ -18,24 +18,57 @@ html, body {
   box-sizing: border-box;
 }
 
+
+
+
 .player-1 .container {
-    position: relative;
-    opacity: 0.6;
-    margin: 0 2% 17px 0; /* Changed margin to percentage */
-    display: flex;
-    flex-direction: column;
-    overflow-wrap: break-word;
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.333;
-    color: #FFFFFF;
-    width: 20%; /* Updated width to 20% */
-    height: fit-content;
-    box-sizing: border-box;
+  position: relative;
+  opacity: 0.6;
+  margin: 0 2% 17px 0;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.333;
+  color: #FFFFFF;
+  width: 20%;
+  height: 100vh; /* Updated to fill the viewport height */
+  box-sizing: border-box;
 }
 
-.player-1 .sidebar {
+.player-1 .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 20px 0 0 20px; /* Adjust margin for positioning */
+  display: flex;
+  width: 133.4px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.player-1 .spotify-logo {
+  width: 133.4px;
+  height: 40px;
+}
+
+.player-1 .profile {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 20px; /* Adjust margin for positioning */
+  border-radius: 24px;
+  background: url('assets/images/Profile.png') 50% / cover no-repeat, linear-gradient(#151515, #151515);
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+
+
+  .player-1 .sidebar {
     position: relative;
     margin: 7.5px 3% 0 0; /* Changed margin to percentage */
     display: flex;
@@ -44,40 +77,6 @@ html, body {
     height: fit-content;
     box-sizing: border-box;
 }
-
-.player-1 .player {
-    margin: 68.5px 0 87.9px 0;
-    display: flex;
-    flex-direction: column;
-    width: 50%; /* Updated width to 50% */
-    box-sizing: border-box;
-}
-
-
-.player-1 .logo {
-    margin: 0 0 743.1px 0.9px;
-    display: flex;
-    width: 133.4px;
-    height: 40px;
-    box-sizing: border-box;
-}
-
-.player-1 .spotify-logo {
-    width: 131.5px;
-    height: 39.4px;
-  }
-
-  .player-1 .profile {
-    border-radius: 24px;
-    background: url('assets/images/Profile.png') 50% / cover no-repeat, linear-gradient(#151515, #151515);
-    align-self: flex-start;
-    width: 48px;
-    height: 48px;
-  }
-
-
-
-
 
   .player-1 .frame-33 {
     display: flex;
@@ -245,6 +244,14 @@ html, body {
     flex-direction: column;
     box-sizing: border-box;
   } */
+
+.player-1 .player {
+    margin: 68.5px 0 87.9px 0;
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* Updated width to 50% */
+    box-sizing: border-box;
+}
 
   .player-1 .song-info {
     margin-bottom: 32px;
