@@ -129,46 +129,49 @@ html, body {
 }
 
 
-  .player-1 .search {
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    margin: 0 16px 40px 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 8px 16px;
-    width: 400px;
-    box-sizing: border-box;
-  }
+.player-1 .search {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 16px 40px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 16px;
+  width: 400px;
+  box-sizing: border-box;
+}
 
+.player-1 .search-song-artist {
+  opacity: 0.6;
+  margin: 2px 14px 2px 0;
+  display: inline-block;
+  width: 100%;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.556;
+  color: #FFFFFF;
+  background: transparent;
+  border: none;
+  outline: none;
+  caret-color: #FFFFFF;
+}
 
+.player-1 .frame {
+  opacity: 0.4;
+  display: flex;
+  padding: 6.3px;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+}
 
-  .player-1 .search-song-artist {
-    opacity: 0.6;
-    margin: 2px 14px 2px 0;
-    display: inline-block;
-    width: 165px;
-    overflow-wrap: break-word;
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.556;
-    color: #FFFFFF;
-  }
+.player-1 .search-icon {
+  width: 19.3px;
+  height: 19.3px;
+}
 
-  .player-1 .frame {
-    opacity: 0.4;
-    display: flex;
-    padding: 6.3px;
-    width: 32px;
-    height: 32px;
-    box-sizing: border-box;
-  }
-
-  .player-1 .search-icon {
-    width: 19.3px;
-    height: 19.3px;
-  }
 
   .player-1 .list-view {
     display: flex;

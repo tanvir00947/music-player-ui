@@ -6,6 +6,7 @@ const SongList = ({ onSongSelect }) => {
     const [songList, setSongList] = useState([]);
     const [filteredSongs, setFilteredSongs] = useState([]);
     const [showTopTracks, setShowTopTracks] = useState(false);
+    const [searchTerm, setSearchTerm] = useState(''); // New state for search term
 
     useEffect(() => {
         const fetchSongList = async () => {
@@ -13,7 +14,7 @@ const SongList = ({ onSongSelect }) => {
                 const response = await fetch('https://cms.samespace.com/items/songs');
                 const responseData = await response.json();
                 setSongList(responseData.data);
-                setFilteredSongs(responseData.data); // Initialize with all songs
+                setFilteredSongs(responseData.data);
             } catch (error) {
                 console.error('Error fetching songs:', error);
             }
@@ -23,15 +24,25 @@ const SongList = ({ onSongSelect }) => {
 
     const handleToggle = (showTopTracks) => {
         setShowTopTracks(showTopTracks);
-        if (showTopTracks) {
-            setFilteredSongs(songList.filter(song => song.top_track));
-        } else {
-            setFilteredSongs(songList);
-        }
+        const filtered = showTopTracks ? songList.filter(song => song.top_track) : songList;
+        setFilteredSongs(filtered.filter(song =>
+            song.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            song.artist.toLowerCase().includes(searchTerm.toLowerCase())
+        ));
+    };
+
+    const handleSearch = (e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+        const filtered = showTopTracks ? songList.filter(song => song.top_track) : songList;
+        setFilteredSongs(filtered.filter(song =>
+            song.name.toLowerCase().includes(value.toLowerCase()) ||
+            song.artist.toLowerCase().includes(value.toLowerCase())
+        ));
     };
 
     return (
-        <div className="sidebar">
+        <div className="sidebar player-1">
             <div className="frame-33">
                 <span 
                     className={`title ${!showTopTracks ? 'active' : ''}`} 
@@ -47,7 +58,13 @@ const SongList = ({ onSongSelect }) => {
                 </span>
             </div>
             <div className="search">
-                <div className="search-song-artist">Search Song, Artist</div>
+                <input
+                    type="text"
+                    className="search-song-artist"
+                    placeholder="Search Song, Artist"
+                    value={searchTerm}
+                    onChange={handleSearch}
+                />
                 <div className="frame">
                     <img className="search-icon" src={Search} alt="search" title="search icon" />
                 </div>
