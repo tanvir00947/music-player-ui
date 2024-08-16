@@ -7,7 +7,7 @@ import PauseButton from '../assets/vectors/pause.png'
 import NextButton from '../assets/vectors/Vector2_x2.svg';
 import SoundButton from '../assets/vectors/Vector4_x2.svg';
 
-const Player = ({song}) => {
+const Player = ({song,songs,onSongSelect}) => {
     const [isPlaying,setIsPlaying] = useState(false)
     const audioRef = useRef(null)
 
@@ -22,6 +22,12 @@ const Player = ({song}) => {
         }
     }, [song, isPlaying]);
 
+    useEffect(() => {
+        if (song) {
+            setIsPlaying(true); 
+        }
+    }, [song]);
+
     const togglePlayPause = () =>{
         if(audioRef.current){
             if(isPlaying){
@@ -33,7 +39,21 @@ const Player = ({song}) => {
         }
     }
 
-    // DO next and prev functionality
+    const handleNext = () => {
+        if (songs && song) {
+            const currentIndex = songs.findIndex((s) => s.id === song.id);
+            const nextSong = songs[(currentIndex + 1) % songs.length]; // Loop to the first song
+            onSongSelect(nextSong);
+        }
+    };
+
+    const handlePrevious = () => {
+        if (songs && song) {
+            const currentIndex = songs.findIndex((s) => s.id === song.id);
+            const prevSong = songs[(currentIndex - 1 + songs.length) % songs.length]; // Loop to the last song
+            onSongSelect(prevSong);
+        }
+    };
 
 
     if(!song){
@@ -65,7 +85,7 @@ const Player = ({song}) => {
                     </div>
                 </div>
                 <div className="frame-91" >
-                    <div className="frame-2">
+                    <div className="frame-2" onClick={handlePrevious}>
                     <img className="previous-button" src={PreviousButton} alt="previous-button" title='Previous Song' />
                     </div>
                     <div className="frame-3" onClick={togglePlayPause}>
@@ -80,7 +100,7 @@ const Player = ({song}) => {
                     {/* <div className="frame-32">
                     <img className="container" src="assets/vectors/Image_x2.svg" />
                     </div> */}
-                    <div className="frame-4">
+                    <div className="frame-4" onClick={handleNext}>
                     <img className="next-button" src={NextButton} alt="next-button" title='Next Song'/>
                     </div>
                 </div>

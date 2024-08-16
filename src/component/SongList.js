@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Search from '../assets/vectors/Vector1_x2.svg';
 import SongItem from './SongItem';
 
-const SongList = ({ onSongSelect }) => {
-    const [songList, setSongList] = useState([]);
+const SongList = ({ onSongSelect,songList,setSongList }) => {
+    // const [songList, setSongList] = useState([]);
     const [filteredSongs, setFilteredSongs] = useState([]);
     const [showTopTracks, setShowTopTracks] = useState(false);
     const [searchTerm, setSearchTerm] = useState(''); // New state for search term

@@ -187,12 +187,18 @@ html, body {
 
 .player-1 .list-item-01 {
     border-radius: 8px;
-    margin: 0 16px 32px 16px;
+    margin: 0 16px 1px 16px;
+    padding:10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 90%; /* Ensure full width utilization */
     box-sizing: border-box;
+}
+
+.player-1 .list-item-01:hover {
+  background: rgba(255,255,255,0.08);
+  cursor: pointer; 
 }
 
   .player-1 .frame-41 {

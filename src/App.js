@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 function App() {
   const [currentSong,setCurrentSong]= useState(null);
+  const [songList,setSongList] = useState([])
 
   const handleSongSelect = (song) => {
     setCurrentSong(song);
@@ -16,8 +17,8 @@ function App() {
     // <Player1/>
     <div className='player-1'>
       <SideBar/>
-      <SongList onSongSelect={handleSongSelect}/>
-      <Player song={currentSong}/>
+      <SongList onSongSelect={handleSongSelect} songList={songList} setSongList={setSongList} />
+      <Player song={currentSong} songs={songList} onSongSelect={handleSongSelect} />
     </div>
 
   );
