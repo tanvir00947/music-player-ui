@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import OptionsButton from '../assets/vectors/Vector3_x2.svg';
 import PreviousButton from '../assets/vectors/Vector9_x2.svg';
 import PlayButton from '../assets/vectors/Vector11_x2.svg';
-import PauseButton from '../assets/vectors/pause.png'
+import PauseButton from '../assets/vectors/pause.png';
 import NextButton from '../assets/vectors/Vector2_x2.svg';
 import SoundButton from '../assets/vectors/Vector4_x2.svg';
 
@@ -12,6 +12,7 @@ const Player = ({ song, songs, onSongSelect }) => {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const audioRef = useRef(null);
+
 
     // Set the audio source when the song changes
     useEffect(() => {
@@ -78,7 +79,7 @@ const Player = ({ song, songs, onSongSelect }) => {
     const handleNext = () => {
         if (songs && song) {
             const currentIndex = songs.findIndex((s) => s.id === song.id);
-            const nextSong = songs[(currentIndex + 1) % songs.length]; // Loop to the first song
+            const nextSong = songs[(currentIndex + 1) % songs.length];
             onSongSelect(nextSong);
         }
     };
@@ -86,27 +87,32 @@ const Player = ({ song, songs, onSongSelect }) => {
     const handlePrevious = () => {
         if (songs && song) {
             const currentIndex = songs.findIndex((s) => s.id === song.id);
-            const prevSong = songs[(currentIndex - 1 + songs.length) % songs.length]; // Loop to the last song
+            const prevSong = songs[(currentIndex - 1 + songs.length) % songs.length];
             onSongSelect(prevSong);
         }
     };
 
     const handleSeekerChange = (e) => {
         const newTime = (e.target.value / 100) * duration;
-        audioRef.current.currentTime = newTime;
         setCurrentTime(newTime);
+        if (audioRef.current) {
+            audioRef.current.currentTime = newTime;
+        }
     };
 
     if (!song) {
         return <div className='player'>Select a song to play</div>;
     }
 
+    // Calculate progress bar fill percentage
+    const progressBarFill = (currentTime / duration) * 100 || 0;
+
     return (
         <>
             <div className="player">
                 <div className="song-info">
-                    <div className="viva-la-vida">{song.name} </div>
-                    <span className="coldplay">{song.artist} </span>
+                    <div className="viva-la-vida">{song.name}</div>
+                    <span className="coldplay">{song.artist}</span>
                 </div>
                 <div className="center">
                     <div
@@ -121,6 +127,9 @@ const Player = ({ song, songs, onSongSelect }) => {
                             className="rectangle-7"
                             value={(currentTime / duration) * 100 || 0}
                             onChange={handleSeekerChange}
+                            style={{
+                                background: `linear-gradient(to right, #FFFFFF ${progressBarFill}%, #555 ${progressBarFill}%)`
+                            }}
                         />
                     </div>
                 </div>
@@ -153,6 +162,6 @@ const Player = ({ song, songs, onSongSelect }) => {
             <audio ref={audioRef} />
         </>
     );
-}
+};
 
 export default Player;

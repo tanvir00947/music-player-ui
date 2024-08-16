@@ -342,6 +342,8 @@ html, body {
   margin-top: 5px;
 }
 
+
+
 .player-1 .rectangle-7 {
   -webkit-appearance: none; /* Remove default appearance */
   appearance: none;
@@ -350,6 +352,10 @@ html, body {
   background: #555; /* Darker background color */
   border-radius: 2px;
   outline: none;
+}
+
+.player-1 .rectangle-7:hover {
+  cursor: pointer;
 }
 
 .player-1 .rectangle-7::-webkit-slider-thumb {
@@ -361,6 +367,7 @@ html, body {
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #000; /* Border to enhance visibility */
+  opacity: 0;
 }
 
 .player-1 .rectangle-7::-moz-range-thumb {
@@ -370,7 +377,9 @@ html, body {
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #000; /* Border to enhance visibility */
+  opacity: 0;
 }
+
 
 
 .player-1 .controls {
