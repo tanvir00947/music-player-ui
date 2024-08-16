@@ -12,29 +12,40 @@ const Player = ({song,songs,onSongSelect}) => {
     const [isPlaying,setIsPlaying] = useState(false)
     const audioRef = useRef(null)
 
+    // Set the audio source when the song changes
     useEffect(() => {
         if (audioRef.current && song) {
             audioRef.current.src = song.url;
+            audioRef.current.load(); // Load the new song
+            audioRef.current.play().catch(error=>{
+                console.error("Error trying to play the audio:",error)
+            });
+            setIsPlaying(true)
+
+        }
+    }, [song]);
+
+    // Handle play/pause functionality
+    useEffect(() => {
+        if (audioRef.current) {
             if (isPlaying) {
-                audioRef.current.play();
+                audioRef.current.play().catch(error=>{
+                    console.error("Error trying to play the audio:",error)
+                });
             } else {
                 audioRef.current.pause();
             }
         }
-    }, [song, isPlaying]);
-
-    useEffect(() => {
-        if (song) {
-            setIsPlaying(true); 
-        }
-    }, [song]);
+    }, [isPlaying,song]);
 
     const togglePlayPause = () =>{
         if(audioRef.current){
             if(isPlaying){
                 audioRef.current.pause();
             } else{
-                audioRef.current.play();
+                audioRef.current.play().catch(error=>{
+                    console.error("Error trying to play the audio:",error)
+                });
             }
             setIsPlaying(!isPlaying)
         }
