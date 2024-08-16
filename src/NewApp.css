@@ -4,7 +4,7 @@ html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden; /* Prevent horizontal scrolling */
-  overflow-y: auto;   /* Allow vertical scrolling */
+  overflow-y: hidden;   /* Prevent vertical scrolling */
 }
 
 .player-1 {
