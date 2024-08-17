@@ -4,6 +4,7 @@ import './NewApp.css';
 import SideBar from "./component/SideBar"
 import SongList from './component/SongList';
 import Player from './component/Player';
+import Navbar from './component/NavBar';
 import { useState,useEffect } from 'react';
 import ColorThief from 'colorthief';
 
@@ -30,12 +31,14 @@ function App() {
     setCurrentSong(song);
   }
   return (
-    // <Player1/>
-    <div className='player-1'  style={{ background: bgGradient}}>
-      <SideBar/>
+    <div className='app-container' style={{ background: bgGradient }}>
+    <Navbar /> {/* Add Navbar component */}
+    <div className='player-1' >
+      <SideBar />
       <SongList onSongSelect={handleSongSelect} songList={songList} setSongList={setSongList} />
       <Player song={currentSong} songs={songList} onSongSelect={handleSongSelect} />
     </div>
+  </div>
 
   );
 }
