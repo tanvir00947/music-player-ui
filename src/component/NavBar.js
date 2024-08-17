@@ -12,7 +12,7 @@ const Navbar = ({toggleView,isSongListVisible}) => {
             </div>
             <div className="navbar__menu">
                 <button className="menu-button" onClick={toggleView}>
-                    {isSongListVisible ? 'Back' : 'Songs'}
+                    {isSongListVisible ? 'Back' : 'Menu'}
                 </button>
             </div>
         </nav>

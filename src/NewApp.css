@@ -497,12 +497,16 @@ html, body {
 
 /* Media Query for screens up to 768px */
 @media (max-width: 768px) {
-  .player-1 .player,
-  .player-1 .song-list {
+  .player-1 .player.disapear{
+    display: none;
+  }
+  .player-1 .song-list.disapear {
     display: none; /* Hide both components initially */
   }
 
-  .player-1 .player.visible,
+  .player-1 .player.visible{
+    display: flex;
+  }
   .player-1 .song-list.visible {
     display: flex; /* Show the visible component */
   }
