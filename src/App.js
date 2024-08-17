@@ -12,6 +12,7 @@ function App() {
   const [currentSong,setCurrentSong]= useState(null);
   const [songList,setSongList] = useState([])
   const [bgGradient, setBgGradient] = useState('');
+  const [isSongListVisible, setIsSongListVisible] = useState(false);
 
   useEffect(() => {
     if (currentSong) {
@@ -29,14 +30,24 @@ function App() {
 
   const handleSongSelect = (song) => {
     setCurrentSong(song);
+    setIsSongListVisible(false);
   }
+  const toggleView = () => {
+    setIsSongListVisible(!isSongListVisible); // Toggle between SongList and Player
+  };
+
+
   return (
     <div className='app-container' style={{ background: bgGradient }}>
-    <Navbar /> {/* Add Navbar component */}
+    <Navbar toggleView={toggleView} isSongListVisible={isSongListVisible}/> 
     <div className='player-1' >
       <SideBar />
-      <SongList onSongSelect={handleSongSelect} songList={songList} setSongList={setSongList} />
-      <Player song={currentSong} songs={songList} onSongSelect={handleSongSelect} />
+      <div className={`song-list ${isSongListVisible ? 'visible' : ''}`}>
+        <SongList onSongSelect={handleSongSelect} songList={songList} setSongList={setSongList} />
+      </div>
+      <div className={`player ${!isSongListVisible ? 'visible' : ''}`}>
+        <Player song={currentSong} songs={songList} onSongSelect={handleSongSelect} />
+      </div>
     </div>
   </div>
 

@@ -73,49 +73,13 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Responsive Adjustments */
+/* Hide on Smaller Screen */
 
 @media (max-width: 768px) {
   .player-1 .container {
       display: none;
-      margin: 15px 5% 10px 5%;
-      width: 25%;
-      max-width: 200px;
-      height: auto; /* Adjust height for smaller screens */
-  }
-
-  .player-1 .logo {
-      margin: 15px 0 0 15px;
-      max-width: 120px; /* Adjust max-width for logo */
-  }
-
-  .player-1 .profile {
-      width: 40px;
-      height: 40px;
-      margin: 15px; /* Adjust margin for smaller screens */
   }
 }
-
-@media (max-width: 480px) {
-  .player-1 .container {
-      margin: 10px 8% 8px 8%;
-      width: 50%;
-      max-width: 150px;
-      height: auto; /* Adjust height for smaller screens */
-  }
-
-  .player-1 .logo {
-      margin: 10px 0 0 10px;
-      max-width: 100px; /* Further reduce max-width for smaller screens */
-  }
-
-  .player-1 .profile {
-      width: 36px;
-      height: 36px;
-      margin: 10px; /* Further adjust margin */
-  }
-}
-
 
 
 .player-1 .sidebar {
@@ -218,67 +182,6 @@ html, body {
   padding-right: 8px;
 }
 
-/* Responsive Adjustments */
-
-@media (max-width: 768px) {
-  .player-1 .sidebar {
-      display: none;
-      margin: 20px 2% 0 2%;
-      max-width: 100%;
-      width: 100%;
-  }
-
-  .player-1 .frame-33 {
-      justify-content: space-evenly;
-  }
-
-  .player-1 .title, .player-1 .title-1 {
-      font-size: 1.25rem;
-  }
-
-  .player-1 .search {
-      margin: 0 8px 24px 8px;
-      padding: 6px 12px;
-  }
-
-  .player-1 .search-song-artist {
-      font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .player-1 .sidebar {
-      margin: 10px 4% 0 4%;
-      height: auto;
-  }
-
-  .player-1 .frame-33 {
-      justify-content: space-around;
-  }
-
-  .player-1 .title, .player-1 .title-1 {
-      font-size: 1rem;
-  }
-
-  .player-1 .search {
-      margin: 0 4px 20px 4px;
-      padding: 4px 8px;
-  }
-
-  .player-1 .search-song-artist {
-      font-size: 0.8rem;
-  }
-
-  .player-1 .frame {
-      width: 24px;
-      height: 24px;
-  }
-
-  .player-1 .search-icon {
-      width: 16px;
-      height: 16px;
-  }
-}
 
 /* Scrollbar styling */
 .player-1 .list-view::-webkit-scrollbar {
@@ -372,30 +275,12 @@ html, body {
 
 
 
-
-  /* .player-1 .sidebar {
-    position: relative;
-    margin: 7.5px 3% 0 0; 
-    display: flex;
-    flex-direction: column;
-    width: 28%; 
-    height: fit-content;
-    box-sizing: border-box;
-} */
-
-/* .player-1 .player {
-    margin: 68.5px 0 87.9px 0;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-  } */
-
 /* General player styling */
 .player-1 .player {
   margin: 40px 10px 0 6%;
   display: flex;
   flex-direction: column;
-  width: 100%; /* Adjust width for full responsiveness */
+  width: 90%; 
   max-width: 480px; /* Set a max-width for large screens */
   box-sizing: border-box;
   align-items: center; /* Center align on smaller screens */
@@ -610,9 +495,17 @@ html, body {
   height: 16px;
 }
 
-/* Media Queries for Responsiveness */
 /* Media Query for screens up to 768px */
 @media (max-width: 768px) {
+  .player-1 .player,
+  .player-1 .song-list {
+    display: none; /* Hide both components initially */
+  }
+
+  .player-1 .player.visible,
+  .player-1 .song-list.visible {
+    display: flex; /* Show the visible component */
+  }
   .player-1 .player {
     margin: 20px 5% 0 5%;
     padding: 5%;
@@ -707,16 +600,15 @@ html, body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  /* background: linear-gradient(108.18deg, #201606 2.5%, #000000 99.8%); */
   box-sizing: border-box;
   height: 60px;
   width: 100%; /* Full width */
 }
 
-/* Show navbar on screens smaller than 768px */
+/* Show navbar on screens 768px and below */
 @media (max-width: 768px) {
   .navbar {
-      display: flex; /* Show navbar */
+    display: flex; /* Show navbar */
   }
 }
 
@@ -758,15 +650,15 @@ html, body {
 
 @media (max-width: 480px) {
   .spotify-logo {
-      max-width: 60px;
+    max-width: 60px;
   }
 
   .profile-pic {
-      width: 30px;
-      height: 30px;
+    width: 30px;
+    height: 30px;
   }
 
   .menu-button {
-      font-size: 0.8rem;
+    font-size: 0.8rem;
   }
 }
