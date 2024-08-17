@@ -4,6 +4,7 @@ import SideBar from "./component/SideBar";
 import SongList from './component/SongList';
 import Player from './component/Player';
 import Navbar from './component/NavBar';
+import ErrorBoundary from './utils/ErrorBoundary';
 import './NewApp.css';
 
 function App() {
@@ -13,6 +14,28 @@ function App() {
   const [isSongListVisible, setIsSongListVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // Add loading state
 
+  // Error Handling
+  useEffect(() => {
+    window.addEventListener('unhandledrejection', (event) => {
+      console.error('Unhandled rejection (promise):', event.promise, 'reason:', event.reason);
+      // Optionally trigger a state update or some other action to show a fallback UI
+      alert("Something went wrong!"); // Show a simple alert or custom UI
+    });
+
+    window.addEventListener('error', (event) => {
+      console.error('Error:', event.error);
+      // Optionally trigger a state update or some other action to show a fallback UI
+      alert("Something went wrong!"); // Show a simple alert or custom UI
+    });
+
+    return () => {
+      window.removeEventListener('unhandledrejection', () => {});
+      window.removeEventListener('error', () => {});
+    };
+  }, []);
+
+
+  
   useEffect(() => {
     // Simulate loading data
     const fetchSongs = async () => {
@@ -56,23 +79,25 @@ function App() {
   };
 
   return (
-    <div className='app-container' style={{ background: bgGradient }}>
-      <Navbar toggleView={toggleView} isSongListVisible={isSongListVisible} />
-      <div className='player-1'>
-        <SideBar />
-        <div className={`sidebar ${isSongListVisible ? 'visible' : 'disapear'}`}>
-          <SongList
-            onSongSelect={handleSongSelect}
-            songList={songList}
-            setSongList={setSongList}
-            isLoading={isLoading} // Pass loading state to SongList
-          />
-        </div>
-        <div className={`player ${isSongListVisible ? 'disapear' : 'visible'}`}>
-          <Player song={currentSong} songs={songList} onSongSelect={handleSongSelect} />
+    <ErrorBoundary>
+      <div className='app-container' style={{ background: bgGradient }}>
+        <Navbar toggleView={toggleView} isSongListVisible={isSongListVisible} />
+        <div className='player-1'>
+          <SideBar />
+          <div className={`sidebar ${isSongListVisible ? 'visible' : 'disapear'}`}>
+            <SongList
+              onSongSelect={handleSongSelect}
+              songList={songList}
+              setSongList={setSongList}
+              isLoading={isLoading} // Pass loading state to SongList
+            />
+          </div>
+          <div className={`player ${isSongListVisible ? 'disapear' : 'visible'}`}>
+            <Player song={currentSong} songs={songList} onSongSelect={handleSongSelect} />
+          </div>
         </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 }
 
