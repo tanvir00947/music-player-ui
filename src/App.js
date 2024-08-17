@@ -42,7 +42,7 @@ function App() {
     <Navbar toggleView={toggleView} isSongListVisible={isSongListVisible}/> 
     <div className='player-1' >
       <SideBar />
-      <div className={`song-list ${isSongListVisible ? 'visible' : 'disapear'}`}>
+      <div className={`sidebar ${isSongListVisible ? 'visible' : 'disapear'}`}>
         <SongList onSongSelect={handleSongSelect} songList={songList} setSongList={setSongList} />
       </div>
       <div className={`player ${isSongListVisible ? 'disapear' : 'visible'}`}>

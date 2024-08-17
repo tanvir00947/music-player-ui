@@ -114,6 +114,9 @@ const Player = ({ song, songs, onSongSelect }) => {
             <div className='player'>
                 <div className='center'>
                 <img className="no-song-spotify-logo" src={spotify_logo} alt="Spotify logo" title="Spotify logo" />
+                <div className="song-info">
+                    <div className="viva-la-vida" style={{textAlign:'center'}}>Select a Song From Menu</div>
+                </div>
                 </div>
             </div>
         );

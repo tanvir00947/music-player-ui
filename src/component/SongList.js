@@ -42,7 +42,7 @@ const SongList = ({ onSongSelect,songList,setSongList }) => {
     };
 
     return (
-        <div className="sidebar player-1">
+        <div className="sidebar">
             <div className="frame-33">
                 <span 
                     className={`title ${!showTopTracks ? 'active' : ''}`} 

@@ -286,6 +286,55 @@ html, body {
   align-items: center; /* Center align on smaller screens */
 }
 
+/* Vertical responsiveness */
+
+/* Screens with a height of 800px or less */
+@media (max-height: 800px) {
+  .player-1 .player {
+    margin: 30px 8px 0 5%; /* Slightly reduce margins */
+    width: 85%; /* Slightly reduce width */
+    max-width: 440px; /* Slightly reduce max-width */
+  }
+}
+
+/* Screens with a height of 600px or less */
+@media (max-height: 600px) {
+  .player-1 .player {
+    margin: 20px 5px 0 4%; /* Further reduce margins */
+    width: 80%; /* Further reduce width */
+    max-width: 400px; /* Further reduce max-width */
+  }
+}
+
+/* Screens with a height of 500px or less */
+@media (max-height: 500px) {
+  .player-1 .player {
+    margin: 15px 4px 0 3%; /* Reduce margins more */
+    width: 75%; /* Further reduce width */
+    max-width: 360px; /* Further reduce max-width */
+  }
+}
+
+/* Screens with a height of 400px or less */
+@media (max-height: 400px) {
+  .player-1 .player {
+    margin: 10px 3px 0 2%; /* Further reduce margins */
+    width: 70%; /* Further reduce width */
+    max-width: 320px; /* Further reduce max-width */
+  }
+}
+
+/* Screens with a height of 300px or less */
+@media (max-height: 300px) {
+  .player-1 .player {
+    margin: 5px 2px 0 1%; /* Minimal margins for very small screens */
+    width: 65%; /* Further reduce width */
+    max-width: 280px; /* Further reduce max-width */
+  }
+}
+
+
+
 /* No song selected Styling */
 .player-1 .no-song-spotify-logo {
   border-radius: 8px;
@@ -460,6 +509,8 @@ html, body {
 .player-1 .play-button {
   width: 48px;
   height: 48px;
+  background: #000; 
+  border-radius: 45px;  /*to make onle triange black*/
 }
 
 .player-1 .pause-button {
@@ -500,16 +551,19 @@ html, body {
   .player-1 .player.disapear{
     display: none;
   }
-  .player-1 .song-list.disapear {
+  .player-1 .sidebar.disapear {
     display: none; /* Hide both components initially */
   }
 
   .player-1 .player.visible{
     display: flex;
   }
-  .player-1 .song-list.visible {
+  .player-1 .sidebar.visible {
     display: flex; /* Show the visible component */
   }
+}
+
+@media (max-width: 768px) {
   .player-1 .player {
     margin: 20px 5% 0 5%;
     padding: 5%;
@@ -596,6 +650,67 @@ html, body {
     height: 16px;
   }
 }
+
+@media (max-width: 768px) {
+  .player-1 .sidebar {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 92vh; /* Adjust the height as needed */
+  }
+
+  
+  .player-1 .frame-33 {
+    margin: 0 8px 16px 8px;
+    display: flex;
+    flex-direction: row; /* Stack titles vertically */
+    justify-content: flex-start;
+    align-items: center; /* Center the titles */
+    width: 100%;
+  }
+
+  .player-1 .title, .player-1 .title-1 {
+    margin: 8px 0; /* Adjust margin for vertical layout */
+    font-size: 1.2rem; /* Adjust font size for smaller screens */
+    text-align: center;
+  }
+  
+  .player-1 .search {
+    margin: 0 8px 20px 8px; /* Reduce margins */
+    padding: 8px; /* Simplify padding */
+    width: calc(100% - 16px); /* Ensure full width minus margins */
+    max-width: 100%; /* Remove max-width constraint */
+    flex-direction: row; /* Stack input and icon vertically */
+    align-items: center; /* Center elements */
+  }
+
+  .player-1 .search-song-artist {
+    margin: 0 0 8px 0; /* Adjust margins for vertical layout */
+    font-size: 0.9rem; /* Slightly reduce font size */
+    width: 100%; /* Ensure input takes full width */
+  }
+
+  .player-1 .frame {
+    width: 32px; /* Maintain icon size */
+    height: 32px;
+    padding: 6px; /* Simplify padding */
+  }
+
+  .player-1 .search-icon {
+    width: 16px; /* Slightly reduce icon size */
+    height: 16px;
+  }
+
+
+  /* .player-1 .list-view {
+    padding-right: 0; 
+    width: 100%;
+  } */
+
+  
+}
+
 
 
 /* Navbar Styles */
