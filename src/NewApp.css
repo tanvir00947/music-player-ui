@@ -383,66 +383,80 @@ html, body {
     box-sizing: border-box;
   } */
 
-  .player-1 .player {
-    margin: 40px 10px 0 6%;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    max-width: 480px; /* Set a max-width for large screens */
-    box-sizing: border-box;
-    align-items: center; /* Center align on smaller screens */
+/* General player styling */
+.player-1 .player {
+  margin: 40px 10px 0 6%;
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Adjust width for full responsiveness */
+  max-width: 480px; /* Set a max-width for large screens */
+  box-sizing: border-box;
+  align-items: center; /* Center align on smaller screens */
 }
 
+/* No song selected Styling */
+.player-1 .no-song-spotify-logo {
+  border-radius: 8px;
+  /* background: url('assets/images/Image42.png') 50% / cover no-repeat; */
+  margin-bottom: 20px;
+  width: 100%; /* Make cover image responsive */
+  max-width: 480px; /* Set a max-width for large screens */
+  height: auto; /* Maintain aspect ratio */
+  padding: 50%; /* Maintain aspect ratio */
+}
+
+/* Song info styling */
 .player-1 .song-info {
-    margin-bottom: 32px;
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center; /* Center text for better mobile view */
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  
 }
 
 .player-1 .viva-la-vida {
-    margin-bottom: 8px;
-    display: inline-block;
-    overflow-wrap: break-word;
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: 24px; /* Adjust font size for smaller screens */
-    line-height: 1.125;
-    color: #FFFFFF;
+  margin-bottom: 8px;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 24px; /* Adjust font size for smaller screens */
+  line-height: 1.125;
+  color: #FFFFFF;
 }
 
 .player-1 .coldplay {
-    opacity: 0.6;
-    align-self: center;
-    overflow-wrap: break-word;
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 14px; /* Adjust font size for smaller screens */
-    line-height: 1.5;
-    color: #FFFFFF;
+  opacity: 0.6;
+  
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px; /* Adjust font size for smaller screens */
+  line-height: 1.5;
+  color: #FFFFFF;
 }
 
+/* Center section (cover and seeker) styling */
 .player-1 .center {
-    margin-bottom: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 480px; /* Set a max-width for large screens */
-    box-sizing: border-box;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px; /* Set a max-width for large screens */
+  box-sizing: border-box;
 }
 
 .player-1 .cover {
-    border-radius: 8px;
-    background: url('assets/images/Image42.png') 50% / cover no-repeat;
-    margin-bottom: 20px;
-    width: 100%; /* Make cover image responsive */
-    max-width: 480px; /* Set a max-width for large screens */
-    height: auto; /* Maintain aspect ratio */
-    padding-top: 90%; /* Maintain aspect ratio */
+  border-radius: 8px;
+  background: url('assets/images/Image42.png') 50% / cover no-repeat;
+  margin-bottom: 20px;
+  width: 100%; /* Make cover image responsive */
+  max-width: 480px; /* Set a max-width for large screens */
+  height: auto; /* Maintain aspect ratio */
+  padding-top: 90%; /* Maintain aspect ratio */
 }
 
 .player-1 .seeker {
@@ -454,8 +468,7 @@ html, body {
   margin-top: 5px;
 }
 
-
-
+/* Seeker input range styling */
 .player-1 .rectangle-7 {
   -webkit-appearance: none; /* Remove default appearance */
   appearance: none;
@@ -492,148 +505,135 @@ html, body {
   opacity: 0;
 }
 
-
-
+/* Control section styling */
 .player-1 .controls {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 480px; /* Set a max-width for large screens */
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 480px; /* Set a max-width for large screens */
+  box-sizing: border-box;
 }
 
 .player-1 .group-7 {
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.1);
-    position: relative;
-    margin-bottom: 1.1px;
-    display: flex;
-    padding: 21.6px 14.4px;
-    width: 48px;
-    height: 48px;
-    box-sizing: border-box;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  margin-bottom: 1.1px;
+  display: flex;
+  padding: 21.6px 14.4px;
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
 }
 
 .player-1 .frame-1 {
-    display: flex;
-    width: 24px;
-    height: 24px;
-    box-sizing: border-box;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
 }
 
 .player-1 .options-button {
-    width: 19.2px;
-    height: 4.8px;
+  width: 19.2px;
+  height: 4.8px;
 }
 
 .player-1 .frame-91 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 16px; /* Add space between buttons */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px; /* Add space between buttons */
 }
 
 .player-1 .frame-2,
 .player-1 .frame-3,
 .player-1 .frame-4 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px; /* Set width */
-    height: 32px; /* Set height */
-    box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; /* Set width */
+  height: 32px; /* Set height */
+  box-sizing: border-box;
 }
 
 .player-1 .previous-button {
-    transform: scaleX(-1); /* Flip the button */
-    width: 24px;
-    height: 16px;
+  transform: scaleX(-1); /* Flip the button */
+  width: 24px;
+  height: 16px;
 }
 
 .player-1 .play-button {
-    width: 48px;
-    height: 48px;
+  width: 48px;
+  height: 48px;
 }
 
 .player-1 .pause-button {
-    border-radius: 56px;
-    background: #FFFFFF;
-    margin-left: 32px;
-    margin-right: 32px;
-    display: flex;
-    padding: 16px 16px;
-    width: 48px;
-    height: 48px;
-    box-sizing: border-box;
+  border-radius: 56px;
+  background: #FFFFFF;
+  margin-left: 32px;
+  margin-right: 32px;
+  display: flex;
+  padding: 16px 16px;
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
 }
 
 .player-1 .next-button {
-    width: 24px;
-    height: 16px;
+  width: 24px;
+  height: 16px;
 }
 
 .player-1 .frame-5 {
-    border-radius: 72px;
-    background: rgba(255, 255, 255, 0.1);
-    margin-bottom: 1.1px;
-    display: flex;
-    padding: 16px 14px;
-    width: 48px;
-    height: 48px;
-    box-sizing: border-box;
+  border-radius: 72px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.1px;
+  display: flex;
+  padding: 16px 14px;
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
 }
 
 .player-1 .sound-button {
-    width: 20px;
-    height: 16px;
+  width: 20px;
+  height: 16px;
 }
 
-/* Responsive Design for Smaller Screens */
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .player-1 .viva-la-vida {
-        font-size: 20px;
-    }
+  /* Hide More Options and Sound buttons on smaller screens */
+  .player-1 .group-7,
+  .player-1 .frame-5 {
+      display: none;
+  }
 
-    .player-1 .coldplay {
-        font-size: 12px;
-    }
+  /* Adjust player controls layout */
+  .player-1 .controls {
+      justify-content: center;
+      gap: 8px; /* Reduce gap between control buttons */
+  }
 
-    .player-1 .cover {
-        width: 100%;
-        height: auto;
-    }
-
-    .player-1 .controls {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px; /* Space between control groups */
-    }
-
-    .player-1 .frame-91 {
-        gap: 16px;
-    }
+  /* Adjust play/pause button size on smaller screens */
+  .player-1 .play-button,
+  .player-1 .pause-button {
+      width: 40px;
+      height: 40px;
+      padding: 12px;
+  }
 }
 
-/* Responsive Design for Very Small Screens */
 @media (max-width: 480px) {
-    .player-1 .viva-la-vida {
-        font-size: 18px;
-    }
-
-    .player-1 .coldplay {
-        font-size: 10px;
-    }
-
-    .player-1 .cover {
-        width: 100%;
-        height: auto;
-    }
-
-    .player-1 .controls {
-        flex-direction: column;
-        align-items: center;
-    }
+  /* Further reduce play/pause button size on very small screens */
+  .player-1 .play-button,
+  .player-1 .pause-button {
+      width: 32px;
+      height: 32px;
+      padding: 8px;
+  }
 }
+
+

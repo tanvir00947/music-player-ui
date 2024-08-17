@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-
+import spotify_logo from '../assets/vectors/Vector8_x2.svg';
 
 import OptionsButton from '../assets/vectors/Vector3_x2.svg';
 import PreviousButton from '../assets/vectors/Vector9_x2.svg';
@@ -105,8 +105,20 @@ const Player = ({ song, songs, onSongSelect }) => {
     };
 
     if (!song) {
-        return <div className='player'>Select a song to play</div>;
+        return (
+            // <div className="player center no-song">
+            //     <div className="no-song-logo">
+            //         <img className="no-song-spotify-logo" src={spotify_logo} alt="Spotify logo" title="Spotify logo" />
+            //     </div>
+            // </div>
+            <div className='player'>
+                <div className='center'>
+                <img className="no-song-spotify-logo" src={spotify_logo} alt="Spotify logo" title="Spotify logo" />
+                </div>
+            </div>
+        );
     }
+    
 
     // Calculate progress bar fill percentage
     const progressBarFill = (currentTime / duration) * 100 || 0;
