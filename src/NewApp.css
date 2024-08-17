@@ -175,21 +175,41 @@ html, body {
 }
 
 
-  .player-1 .list-view {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 432px;
-    box-sizing: border-box;
-    overflow-y: auto; /* Enable vertical scrolling */
-    flex-grow: 1; /* Allow this section to grow and take available space */
-    padding-right: 8px; /* Add padding to avoid overlap with scrollbar */
+.player-1 .list-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 432px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Enable vertical scrolling */
+  flex-grow: 1; /* Allow this section to grow and take available space */
+  padding-right: 8px; /* Add padding to avoid overlap with scrollbar */
 }
+
+/* Scrollbar styling */
+.player-1 .list-view::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.player-1 .list-view::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Roundness of the scrollbar thumb */
+}
+
+.player-1 .list-view::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker color on hover */
+}
+
+.player-1 .list-view::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Background color of the scrollbar track */
+  border-radius: 4px; /* Roundness of the scrollbar track */
+}
+
 
 .player-1 .list-item-01 {
     border-radius: 8px;
-    margin: 0 16px 1px 16px;
-    padding:10px;
+    margin: 0 10px 1px 16px;
+    padding:10px 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -252,6 +272,7 @@ html, body {
     font-size: 18px;
     line-height: 1.333;
     color: #FFFFFF;
+    padding: 8px;
   }
 
 

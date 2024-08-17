@@ -80,6 +80,7 @@ const SongList = ({ onSongSelect,songList,setSongList }) => {
                         onClick={() => onSongSelect(song)}
                     />
                 ))}
+                <SongItem/>
             </div>
         </div>
     );
