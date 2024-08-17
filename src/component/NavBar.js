@@ -11,7 +11,7 @@ const Navbar = () => {
                 <img className="spotify-logo" src={spotify_logo} alt="spotify logo" title="spotify logo"/>
             </div>
             <div className="navbar__menu">
-                <button className="menu-button">Menu</button>
+                <button className="menu-button">Songs</button>
             </div>
         </nav>
     );

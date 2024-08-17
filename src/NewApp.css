@@ -222,6 +222,7 @@ html, body {
 
 @media (max-width: 768px) {
   .player-1 .sidebar {
+      display: none;
       margin: 20px 2% 0 2%;
       max-width: 100%;
       width: 100%;
@@ -610,37 +611,95 @@ html, body {
 }
 
 /* Media Queries for Responsiveness */
+/* Media Query for screens up to 768px */
 @media (max-width: 768px) {
-  /* Hide More Options and Sound buttons on smaller screens */
-  .player-1 .group-7,
-  .player-1 .frame-5 {
-      display: none;
+  .player-1 .player {
+    margin: 20px 5% 0 5%;
+    padding: 5%;
+    max-width: 100%; /* Allow player to take full width */
   }
 
-  /* Adjust player controls layout */
+  .player-1 .no-song-spotify-logo {
+    margin-bottom: 15px;
+    max-width: 100%; /* Allow cover image to take full width */
+    padding: 50% 0; /* Maintain aspect ratio */
+  }
+
+  .player-1 .song-info {
+    margin-bottom: 20px;
+    
+    width: 100%; /* Ensure it takes full width */
+  }
+
+  .player-1 .viva-la-vida {
+    font-size: 20px; /* Adjust font size for smaller screens */
+  }
+
+  .player-1 .coldplay {
+    font-size: 12px; /* Adjust font size for smaller screens */
+  }
+
+  .player-1 .center {
+    margin-bottom: 20px;
+  }
+
+  .player-1 .cover {
+    margin-bottom: 15px;
+    padding-top: 75%; /* Adjust padding to maintain aspect ratio */
+  }
+
+  .player-1 .seeker {
+    height: 4px; /* Adjust height for smaller screens */
+    margin-top: 10px;
+  }
+
+  .player-1 .rectangle-7 {
+    height: 3px; /* Adjust height for slider */
+  }
+
+  .player-1 .rectangle-7::-webkit-slider-thumb {
+    width: 12px; /* Keep the thumb size unchanged */
+    height: 12px;
+  }
+
+  .player-1 .rectangle-7::-moz-range-thumb {
+    width: 12px; /* Keep the thumb size unchanged */
+    height: 12px;
+  }
+
   .player-1 .controls {
-      justify-content: center;
-      gap: 8px; /* Reduce gap between control buttons */
+    
+    align-items: center; /* Center align controls */
+    width: 100%; /* Allow controls to take full width */
+    max-width: 100%; /* Ensure full width */
   }
 
-  /* Adjust play/pause button size on smaller screens */
+  .player-1 .frame-1,
+  .player-1 .frame-91,
+  .player-1 .frame-2,
+  .player-1 .frame-3,
+  .player-1 .frame-4 {
+    width: 32px; /* Keep button sizes unchanged */
+    height: 32px;
+  }
+
   .player-1 .play-button,
   .player-1 .pause-button {
-      width: 40px;
-      height: 40px;
-      padding: 12px;
+    width: 48px; /* Keep button sizes unchanged */
+    height: 48px;
+  }
+
+  .player-1 .pause-button {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .player-1 .sound-button {
+    width: 20px; /* Keep button sizes unchanged */
+    height: 16px;
   }
 }
 
-@media (max-width: 480px) {
-  /* Further reduce play/pause button size on very small screens */
-  .player-1 .play-button,
-  .player-1 .pause-button {
-      width: 32px;
-      height: 32px;
-      padding: 8px;
-  }
-}
 
 /* Navbar Styles */
 .navbar {
