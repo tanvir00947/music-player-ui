@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+
+
 import OptionsButton from '../assets/vectors/Vector3_x2.svg';
 import PreviousButton from '../assets/vectors/Vector9_x2.svg';
 import PlayButton from '../assets/vectors/Vector11_x2.svg';
@@ -11,7 +13,9 @@ const Player = ({ song, songs, onSongSelect }) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
+    
     const audioRef = useRef(null);
+
 
 
     // Set the audio source when the song changes

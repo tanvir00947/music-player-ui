@@ -4,18 +4,34 @@ import './NewApp.css';
 import SideBar from "./component/SideBar"
 import SongList from './component/SongList';
 import Player from './component/Player';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import ColorThief from 'colorthief';
 
 function App() {
   const [currentSong,setCurrentSong]= useState(null);
   const [songList,setSongList] = useState([])
+  const [bgGradient, setBgGradient] = useState('');
+
+  useEffect(() => {
+    if (currentSong) {
+        const img = new Image();
+        img.src = `https://cms.samespace.com/assets/${currentSong.cover}`;
+        img.crossOrigin = "Anonymous";
+        img.onload = () => {
+            const colorThief = new ColorThief();
+            const colors = colorThief.getPalette(img, 2);
+            const gradient = `linear-gradient(to bottom, rgb(${colors[0].join(',')}), rgb(${colors[1].join(',')}))`;
+            setBgGradient(gradient);
+        };
+    }
+  }, [currentSong]);
 
   const handleSongSelect = (song) => {
     setCurrentSong(song);
   }
   return (
     // <Player1/>
-    <div className='player-1'>
+    <div className='player-1'  style={{ background: bgGradient}}>
       <SideBar/>
       <SongList onSongSelect={handleSongSelect} songList={songList} setSongList={setSongList} />
       <Player song={currentSong} songs={songList} onSongSelect={handleSongSelect} />
