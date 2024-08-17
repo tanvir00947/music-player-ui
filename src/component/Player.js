@@ -13,26 +13,42 @@ const Player = ({ song, songs, onSongSelect }) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
-    
+    const [isLoaded, setIsLoaded] = useState(false); // New state for tracking if the audio is loaded
+
     const audioRef = useRef(null);
-
-
 
     // Set the audio source when the song changes
     useEffect(() => {
         if (audioRef.current && song) {
+            setIsLoaded(false); // Reset loading state when a new song is selected
             audioRef.current.src = song.url;
             audioRef.current.load(); // Load the new song
-            audioRef.current.play().catch(error => {
-                console.error("Error trying to play the audio:", error);
+
+            // Attach an event listener to detect when the audio is fully loaded
+            audioRef.current.addEventListener('canplaythrough', () => {
+                setIsLoaded(true); // Set loading state to true when the audio is ready to play
+                setIsPlaying(true); // Automatically start playing the audio once it's loaded
+                audioRef.current.play().catch(error => {
+                    console.error("Error trying to play the audio:", error);
+                });
             });
-            setIsPlaying(true);
+
+            // Optionally, handle errors during loading
+            audioRef.current.addEventListener('error', (error) => {
+                console.error("Error trying to load the audio:", error);
+            });
+
+            return () => {
+                // Cleanup event listeners when the component unmounts or the song changes
+                audioRef.current.removeEventListener('canplaythrough', () => {});
+                audioRef.current.removeEventListener('error', () => {});
+            };
         }
     }, [song]);
 
     // Handle play/pause functionality
     useEffect(() => {
-        if (audioRef.current) {
+        if (audioRef.current && isLoaded) {
             if (isPlaying) {
                 audioRef.current.play().catch(error => {
                     console.error("Error trying to play the audio:", error);
@@ -41,7 +57,7 @@ const Player = ({ song, songs, onSongSelect }) => {
                 audioRef.current.pause();
             }
         }
-    }, [isPlaying]);
+    }, [isPlaying, isLoaded]);
 
     // Update current time and duration as the song plays
     useEffect(() => {
@@ -68,14 +84,7 @@ const Player = ({ song, songs, onSongSelect }) => {
     }, [song]);
 
     const togglePlayPause = () => {
-        if (audioRef.current) {
-            if (isPlaying) {
-                audioRef.current.pause();
-            } else {
-                audioRef.current.play().catch(error => {
-                    console.error("Error trying to play the audio:", error);
-                });
-            }
+        if (audioRef.current && isLoaded) {
             setIsPlaying(!isPlaying);
         }
     };
@@ -106,11 +115,6 @@ const Player = ({ song, songs, onSongSelect }) => {
 
     if (!song) {
         return (
-            // <div className="player center no-song">
-            //     <div className="no-song-logo">
-            //         <img className="no-song-spotify-logo" src={spotify_logo} alt="Spotify logo" title="Spotify logo" />
-            //     </div>
-            // </div>
             <div className='player'>
                 <div className='center'>
                 <img className="no-song-spotify-logo" src={spotify_logo} alt="Spotify logo" title="Spotify logo" />
@@ -121,7 +125,6 @@ const Player = ({ song, songs, onSongSelect }) => {
             </div>
         );
     }
-    
 
     // Calculate progress bar fill percentage
     const progressBarFill = (currentTime / duration) * 100 || 0;
@@ -149,6 +152,7 @@ const Player = ({ song, songs, onSongSelect }) => {
                             style={{
                                 background: `linear-gradient(to right, #FFFFFF ${progressBarFill}%, #555 ${progressBarFill}%)`
                             }}
+                            disabled={!isLoaded} // Disable the seeker until the song is loaded
                         />
                     </div>
                 </div>
@@ -163,7 +167,7 @@ const Player = ({ song, songs, onSongSelect }) => {
                             <img className="previous-button" src={PreviousButton} alt="previous-button" title='Previous Song' />
                         </div>
                         <div className="frame-3" onClick={togglePlayPause}>
-                            {isPlaying ? (
+                            {isPlaying && isLoaded ? (
                                 <img className="pause-button" src={PauseButton} alt="pause-button" title='Pause' />
                             ) : (
                                 <img className="play-button" src={PlayButton} alt="play-button" title='Play' />
