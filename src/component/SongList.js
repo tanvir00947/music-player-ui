@@ -80,7 +80,15 @@ const SongList = ({ onSongSelect,songList,setSongList }) => {
                         onClick={() => onSongSelect(song)}
                     />
                 ))}
-                <SongItem/>
+                <div>
+                    <div className="frame-41">
+                        <div className="image-41"></div>
+                        <div className="frame-31">
+                        <span className="song-name-style"></span>
+                        <span className="artist-name-style"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
